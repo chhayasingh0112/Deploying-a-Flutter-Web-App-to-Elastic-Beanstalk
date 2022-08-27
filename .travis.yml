@@ -40,9 +40,13 @@ deploy:
     bucket_name: "donnelson-deploy-bucket"
     on:
 <<<<<<< HEAD
+<<<<<<< HEAD
       branch: master
 =======
     all_branches: true
+=======
+       branch: master
+>>>>>>> 71fd4e1ab5814f39c55897d2c7411fb8eb71d4f1
 
 >>>>>>> 2e7e6f0d80479e030bddb4763d957664e98a3264
 
