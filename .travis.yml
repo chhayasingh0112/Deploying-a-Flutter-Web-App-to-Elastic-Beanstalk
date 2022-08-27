@@ -39,7 +39,7 @@ deploy:
     env: "dartserver-staging-v1"
     bucket_name: "donnelson-deploy-bucket"
     on:
-    all_branches: true
+       branch: master
 
 
 
