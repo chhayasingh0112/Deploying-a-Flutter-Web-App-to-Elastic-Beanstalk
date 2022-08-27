@@ -38,6 +38,9 @@ deploy:
     app: "debugging-dart-webserver"
     env: "dartserver-staging-v1"
     bucket_name: "donnelson-deploy-bucket"
+    on:
+      branch: master
+
 
 
     
