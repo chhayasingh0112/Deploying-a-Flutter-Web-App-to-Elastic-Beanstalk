@@ -41,7 +41,7 @@ deploy:
      on:
       branch:
         only:
-        - master
+        - main
 
 
 
