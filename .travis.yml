@@ -1,0 +1,58 @@
+# https://docs.travis-ci.com/user/languages/dart/
+language: dart
+dart:
+  - stable
+
+before_script:
+  # https://flutter.dev/docs/get-started/web
+  - git clone https://github.com/flutter/flutter.git -b beta
+  - export PATH="$PATH:`pwd`/flutter/bin"
+  - flutter upgrade
+  - flutter config --enable-web
+  - flutter doctor
+
+script:
+  - sh ./build.sh
+  # Debug
+  - pwd
+  - ls -la
+  # Clean up
+  # Remove unused directories, the ./dist directory houses it now
+  - rm -rf ./client
+  - rm -rf ./server
+  - rm -rf ./flutter
+
+# Deploy configuration
+# Note: Be sure region has the bucket and application in that region.
+# Note: See the readme init instructions on how I created this project.
+
+deploy:
+  - provider: elasticbeanstalk
+    edge: true
+    skip_cleanup: true
+    access_key_id:
+      secure:$AWS_ACCESS_KEY
+    secret_access_key:
+      secure:$AWS_SECERT_KEY
+    region: "us-west-2"
+    app: "debugging-dart-webserver"
+    env: "dartserver-staging-v1"
+    bucket_name: "donnelson-deploy-bucket"
+
+
+    
+# Run Travis CLI in this repo
+# gem install travis
+
+# Delete Travis Cache
+# travis cache --com
+# travis cache --com --delete
+
+# Encrypt Secure Variables
+# gem install travis
+# travis login --github-token replace_with_github_personal_token
+# cd to/this/repo
+# travis encrypt xxx_replace_with_access_key_id
+# travis encrypt xxx_replace_with_with_secret_key
+
+# Note: Debug deployment on EC2: in the docker container, or EB dash logs, in file: /var/log/eb-activity.log
