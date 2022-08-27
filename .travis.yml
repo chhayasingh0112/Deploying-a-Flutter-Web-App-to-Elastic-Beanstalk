@@ -38,7 +38,7 @@ deploy:
     app: "debugging-dart-webserver"
     env: "dartserver-staging-v1"
     bucket_name: "donnelson-deploy-bucket"
-    on: all_branches: true
+    on: all_branch: true
 
 
 
