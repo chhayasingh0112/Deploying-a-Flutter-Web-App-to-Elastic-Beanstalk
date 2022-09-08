@@ -4,7 +4,7 @@ dart:
   - stable
 
 before_script:
-  # https://flutter.dev/docs/get-started/web
+  # https://flutter.dev/docs/get-started/web  hey
   - git clone https://github.com/flutter/flutter.git -b beta
   - export PATH="$PATH:`pwd`/flutter/bin"
   - flutter upgrade
@@ -39,20 +39,12 @@ deploy:
     env: "dartserver-staging-v1"
     bucket_name: "donnelson-deploy-bucket"
     on:
-<<<<<<< HEAD
-<<<<<<< HEAD
       branch: master
-=======
-    all_branches: true
-=======
-       branch: master
->>>>>>> 71fd4e1ab5814f39c55897d2c7411fb8eb71d4f1
 
->>>>>>> 2e7e6f0d80479e030bddb4763d957664e98a3264
 
 
     
-# Run Travis CLI in this repo
+
 # gem install travis
 
 # Delete Travis Cache
