@@ -39,7 +39,10 @@ deploy:
     env: "dartserver-staging-v1"
     bucket_name: "donnelson-deploy-bucket"
     on:
-      branch: master
+    repo: Deploying-a-Flutter-Web-App-to-Elastic-Beanstalk
+    branches:    # ← new!
+      only:      # ← new!
+        - master # ← new!
 
 
 
